@@ -21,4 +21,4 @@ Surfboard.propTypes = {
   whenSurfboardClicked: PropTypes.func 
 };
 
-export default Ticket;
+export default Surfboard;

@@ -1,12 +1,12 @@
 import React from "react";
 import Header from "./Header";
-// import SurfboardControl from "./SurfboardControl";
+import SurfboardControl from "./SurfboardControl";
 
 function App() {
   return (
     <React.Fragment>
       <Header />
-      {/* <SurfboardControl /> */}
+      <SurfboardControl />
     </React.Fragment>
   );
 }
