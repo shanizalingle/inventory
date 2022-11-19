@@ -57,7 +57,7 @@ class SurfboardControl extends React.Component {
       surfboardToEdit.quantity = surfboardToEdit.quantity-1;
     }
     const editedMainSurfboardList = this.state.mainSurfboardList
-      .filter(surfboard => surfboard.id !== id)
+      .filter(surfboard => surfboard.id !== this.state.selectedSurfboard.id)
       .concat(surfboardToEdit);
     this.setState({
       mainSurfboardList: editedMainSurfboardList
