@@ -8,6 +8,7 @@
 * _React_
 * _JXS_
 * _Webpack_
+* _HTML_
 
 ## Description
 _This website is for selling merchandise for a surf shop, a user can Create, Read, Update and Delete items in the store. The quantity of items updates as needed, and states "out of stock" when items are sold out._
