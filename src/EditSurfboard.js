@@ -7,7 +7,12 @@ function EditSurfboard (props) {
 
   function handleEditSurfboardSubmission(event) {
     event.preventDefault();
-    props.onEditSurfboard({name: event.target.name.value, price: event.target.price.value, quantity: event.target.quantity.value, id: surfboard.id})
+    props.onEditSurfboard({
+      name: event.target.name.value, 
+      price: event.target.price.value, 
+      quantity: event.target.quantity.value, 
+      id: surfboard.id
+    })
   }
 
   return (

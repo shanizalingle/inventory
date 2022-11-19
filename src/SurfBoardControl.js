@@ -16,12 +16,6 @@ class SurfboardControl extends React.Component {
     };
   }
 
-  handleAddingNewSurfboardToList = (newSurfboard) => {
-    const newMainSurfboardList = this.state.mainSurfboardList.concat(newSurfboard);
-    this.setState({mainSurfboardList: newMainSurfboardList,
-                  formVisibleOnPage: false });
-  }
-
   handleClick = () => {
     if (this.state.selectedSurfboard != null) {
       this.setState({
@@ -36,6 +30,12 @@ class SurfboardControl extends React.Component {
     }
   }
 
+  handleAddingNewSurfboardToList = (newSurfboard) => {
+    const newMainSurfboardList = this.state.mainSurfboardList.concat(newSurfboard);
+    this.setState({mainSurfboardList: newMainSurfboardList,
+                  formVisibleOnPage: false });
+  }
+
   handleChangingSelectedSurfboard = (id) => {
     const selectedSurfboard = this.state.mainSurfboardList.filter(surfboard => surfboard.id === id)[0];
     this.setState({selectedSurfboard: selectedSurfboard});
@@ -46,6 +46,21 @@ class SurfboardControl extends React.Component {
     this.setState({
       mainSurfboardList: newMainSurfboardList,
       selectedSurfboard: null
+    });
+  }
+
+  handleSellingSurfboard = (id) => {
+    const surfboardToEdit = this.state.mainSurfboardList.filter(surfboard => surfboard.id === id)[0];
+    if (surfboardToEdit.quantity === 1){
+      surfboardToEdit.quantity = "Out Of Stock";
+    } else {
+      surfboardToEdit.quantity = surfboardToEdit.quantity-1;
+    }
+    const editedMainSurfboardList = this.state.mainSurfboardList
+      .filter(surfboard => surfboard.id !== id)
+      .concat(surfboardToEdit);
+    this.setState({
+      mainSurfboardList: editedMainSurfboardList
     });
   }
 
@@ -79,7 +94,8 @@ class SurfboardControl extends React.Component {
       <SurfboardDetail 
         surfboard = {this.state.selectedSurfboard} 
         onClickingDelete = {this.handleDeletingSurfboard} 
-        onClickingEdit = {this.handleEditClick} />
+        onClickingEdit = {this.handleEditClick}
+        onClickingSell = {this.handleSellingSurfboard} />
       buttonText="Return to Surfboard List"
     } else if (this.state.formVisibleOnPage) {
       currentlyVisibleState = 
@@ -90,7 +106,8 @@ class SurfboardControl extends React.Component {
       currentlyVisibleState = 
       <SurfboardList 
         surfboardList = {this.state.mainSurfboardList} 
-        onSurfboardSelection = {this.handleChangingSelectedSurfboard} />
+        onSurfboardSelection = {this.handleChangingSelectedSurfboard}
+        onSoldSurfboard = {this.handleSellingSurfboard} />
       buttonText= 'Add Surfboard';
     }
     return(

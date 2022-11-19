@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 function SurfboardDetail(props){
-  const { surfboard, onClickingDelete } = props;
+  const { surfboard, onClickingDelete, onClickingSell } = props;
 
   return (
     <React.Fragment>
@@ -11,6 +11,7 @@ function SurfboardDetail(props){
       <p>{surfboard.quantity}</p>
       <button onClick={ props.onClickingEdit }>Update Surfboard</button> 
       <button onClick={()=> onClickingDelete(surfboard.id) }>Delete Surfboard</button>
+      <button onClick={() => onClickingSell(surfboard.id)}>Sell Surfboard</button>
       <hr/>
     </React.Fragment>
   );
