@@ -6,7 +6,7 @@
 
 * _JavaScript_
 * _React_
-* _HTML_
+* _JXS_
 * _Webpack_
 
 ## Description
