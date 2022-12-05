@@ -51,8 +51,8 @@ class SurfboardControl extends React.Component {
 
   handleSellingSurfboard = (id) => {
     const surfboardToEdit = this.state.mainSurfboardList.filter(surfboard => surfboard.id === id)[0];
-    if (surfboardToEdit.quantity === 1){
-      surfboardToEdit.quantity = "Out Of Stock";
+    if (surfboardToEdit.quantity === 0){
+      surfboardToEdit.quantity = 0;
     } else {
       surfboardToEdit.quantity = surfboardToEdit.quantity-1;
     }
